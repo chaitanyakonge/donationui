@@ -36,10 +36,9 @@ export enum PaymentMode {
 }
 
 export enum DonationStatus {
+  SUCCESS = 'SUCCESS',
   PENDING = 'PENDING',
-  COMPLETED = 'COMPLETED',
   FAILED = 'FAILED',
-  CANCELLED = 'CANCELLED'
 }
 
 export interface DonationRequest {

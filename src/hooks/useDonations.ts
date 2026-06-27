@@ -16,7 +16,14 @@ export const useDonations = () => {
       if (response.success && response.data) {
         // Backend returns {donations: [], acknowledgement: {}}
         const donationsData = response.data.donations || [];
-        setDonations(donationsData);
+        const mapped = donationsData.map((d: any) => ({
+          ...d,
+          id: d.transactionId,
+          createdAt: d.transactionEpoch ? new Date(d.transactionEpoch * 1000).toISOString() : undefined,
+        }));
+        // Newest first
+        mapped.sort((a: any, b: any) => (b.transactionEpoch ?? 0) - (a.transactionEpoch ?? 0));
+        setDonations(mapped);
       } else {
         setError(response.error || 'Failed to fetch donations');
       }
@@ -51,7 +58,7 @@ export const useDonationSubmit = () => {
 
     try {
       const response = await DonationService.processUnifiedDonation(donationData);
-      
+
       if (response.success && response.data) {
         setSuccess(response.data);
         return response.data;

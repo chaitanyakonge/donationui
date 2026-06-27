@@ -56,6 +56,14 @@ export class DonationService {
       paymentMode
     });
   }
+
+  static async updateTransactionStatus(transactionId: string, status: string, utr?: string): Promise<ApiResponse<any>> {
+    return apiClient.post<any>(API_ENDPOINTS.DONATIONS.UPDATE_STATUS, {
+      transactionId,
+      status,
+      utr,
+    });
+  }
 }
 
 export default DonationService;

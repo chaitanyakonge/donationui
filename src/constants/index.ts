@@ -38,10 +38,9 @@ export const PAYMENT_MODES = [
 ];
 
 export const DONATION_STATUS = [
+  { value: 'SUCCESS', label: 'Success', color: 'green' },
   { value: 'PENDING', label: 'Pending', color: 'yellow' },
-  { value: 'COMPLETED', label: 'Completed', color: 'green' },
   { value: 'FAILED', label: 'Failed', color: 'red' },
-  { value: 'CANCELLED', label: 'Cancelled', color: 'gray' },
 ];
 
 export const FORM_VALIDATION = {

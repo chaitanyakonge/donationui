@@ -53,21 +53,7 @@ export default function DonationsPage() {
         </div>
 
         {/* Tab Content */}
-        {activeTab === 'new' && (
-          <div className="space-y-6">
-            <div className="bg-gradient-to-r from-orange-100 to-amber-100 rounded-lg p-6 border border-orange-200">
-              <div className="text-center">
-                <h2 className="text-xl font-bold text-amber-900 mb-2">
-                  🙏 Make a Donation to Kimaya Ashram
-                </h2>
-                <p className="text-amber-800">
-                  Your generous contribution helps us serve the community and spread spiritual knowledge
-                </p>
-              </div>
-            </div>
-            <DonationForm />
-          </div>
-        )}
+        {activeTab === 'new' && <DonationForm />}
 
         {activeTab === 'recent' && (
           <div className="space-y-6">

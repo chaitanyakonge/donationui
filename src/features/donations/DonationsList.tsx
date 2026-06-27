@@ -102,16 +102,11 @@ const DonationsList: React.FC = () => {
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
-              {donations.map((donation) => (
-                <tr key={donation.id || donation.transactionId} className="hover:bg-gray-50">
+              {donations.map((donation, index) => (
+                <tr key={donation.transactionId ?? index} className="hover:bg-gray-50">
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <div>
-                      <div className="text-sm font-medium text-gray-900">
-                        {donation.donor ? `${donation.donor.firstName} ${donation.donor.lastName}` : 'N/A'}
-                      </div>
-                      <div className="text-sm text-gray-500">
-                        {donation.donor?.email}
-                      </div>
+                    <div className="text-sm font-mono text-gray-700">
+                      {donation.donorId ?? 'N/A'}
                     </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
