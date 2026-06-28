@@ -1,7 +1,7 @@
 const IS_PROD = process.env.NEXT_PUBLIC_IS_PROD === 'true';
 
 const API_URLS = {
-  BETA: 'https://ex5wsgxne4.execute-api.ap-south-1.amazonaws.com',
+  BETA: 'https://xkijq2set9.execute-api.ap-south-1.amazonaws.com',
   PROD: '', // Will be set later
 };
 
