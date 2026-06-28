@@ -13,6 +13,7 @@ export interface Donor {
 export interface Donation {
   id?: string;
   donorId?: string;
+  donorName?: string;
   donor?: Donor;
   amount: number;
   paymentMode: PaymentMode;
@@ -52,6 +53,7 @@ export interface DonationRequest {
   paymentMode: PaymentMode;
   bankReferenceNumber?: string;
   eventDescription: string;
+  status: DonationStatus;
 }
 
 export interface DonationResponse {

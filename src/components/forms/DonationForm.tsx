@@ -3,8 +3,8 @@
 import React from 'react';
 import { Button, Input, Select, Card } from '@/components/ui';
 import { useForm, useDonationSubmit } from '@/hooks';
-import { DonationRequest, PaymentMode } from '@/types';
-import { PAYMENT_MODES, FORM_VALIDATION } from '@/constants';
+import { DonationRequest, PaymentMode, DonationStatus } from '@/types';
+import { PAYMENT_MODES, DONATION_STATUS, FORM_VALIDATION } from '@/constants';
 import { validateEmail, validatePhone, validatePAN, validateAmount } from '@/utils';
 
 const initialValues: DonationRequest = {
@@ -18,6 +18,7 @@ const initialValues: DonationRequest = {
   paymentMode: PaymentMode.UPI,
   bankReferenceNumber: '',
   eventDescription: '',
+  status: DonationStatus.PENDING,
 };
 
 const DonationForm: React.FC = () => {
@@ -221,6 +222,16 @@ const DonationForm: React.FC = () => {
             error={touched.paymentMode ? errors.paymentMode : undefined}
           />
         </div>
+
+        <Select
+          label="Payment Status"
+          name="status"
+          options={DONATION_STATUS}
+          required
+          value={values.status}
+          onChange={handleInputChange}
+          error={touched.status ? errors.status : undefined}
+        />
 
         {values.paymentMode !== PaymentMode.CASH && (
           <Input
